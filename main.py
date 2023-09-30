@@ -11,10 +11,8 @@ def decorator_time(fn):
        return dt
    return wrapper
 
-
 def pow_2():
    return 10000000 ** 2
-
 
 def in_build_pow():
    return pow(10000000, 2)
