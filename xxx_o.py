@@ -61,7 +61,8 @@ def win_check(check_field):
     Res = [[], [], []]
     for i in range(len(wins)):
         for j in range(len(check_field)):
-            Res[j] = list(map(lambda x,y: x*y, check_field[j], wins[i][j]))
+            #Res[j] = list(map(lambda x,y: x*y, check_field[j], wins[i][j]))
+            Res[j] = [x*y for x, y in zip(check_field[j], wins[i][j])]
         if Res == wins[i]:
             return True
     return False
