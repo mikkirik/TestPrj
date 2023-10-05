@@ -9,6 +9,15 @@ def exit_function():
         return exit_function()
 
 
+def check_filling(check_field):
+    for i in range(3):
+        if '-' in check_field[i]:
+            return True
+    print('Ходы закончились')
+    return False
+
+
+
 #Заполнение полей: игрового - прочерками, полей игроков - нулями
 field = [["-"] * 3 for i in range(3)]
 x_field = [[0] * 3 for i in range(3)]
@@ -66,9 +75,8 @@ for row in field:
 print('Давай сыграем в игру!\nИспользуй для выбора квадрата цифровую клавиатуру')
 
 gamer = 'X' #первый всегда ходит Х
-count = 0
 
-while count < 9:
+while check_filling(field):
     #выбор квадратика - ввод с клавиатуры
     num = int(input(f'Сделай свой ход, мистер {gamer}: '))
 
@@ -81,7 +89,6 @@ while count < 9:
                 x_field[square[0]][square[1]] = 1
             else:
                 o_field[square[0]][square[1]] = 1
-            count += 1
         else:
             print('Плохой выбор( Переход хода')
     else:
@@ -103,7 +110,7 @@ while count < 9:
     #смена игрока
     gamer = 'O' if gamer == 'X' else 'X'
 
-
+print('Игра окончена! Спасибо!')
 
 
 
